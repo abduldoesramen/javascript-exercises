@@ -1,8 +1,9 @@
 const findTheOldest = function (people) {
     var oldestAge = 0;
-
     const oldestPerson = people.map((person) => {
-        !person.yearOfDeath ? person.yearOfDeath = 2023 : person.yearOfDeath = person.yearOfDeath;
+
+        /* If alive, birth year is equal to current year */
+        !person.yearOfDeath ? person.yearOfDeath = new Date().getFullYear() : person.yearOfDeath = person.yearOfDeath;
         var age = person.yearOfDeath - person.yearOfBirth;
 
         /* Find the person with the oldest name */
